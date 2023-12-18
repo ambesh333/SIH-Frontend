@@ -2,14 +2,15 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-import PredictionForm from './components/PredictionForm';
-import PredictionResult from './components/PredictionResult';
-import { makePrediction } from './services/PredictionService';
+import PredictionForm from "./components/PredictionForm";
+import PredictionResult from "./components/PredictionResult";
+import { makePrediction } from "./services/PredictionService";
 
 import { Navbar, Footer, Sidebar } from "./components";
 import {
   Ecommerce,
   Orders,
+  MarketPlace,
   Calendar,
   Employees,
   Customers,
@@ -111,6 +112,7 @@ const App = () => {
 
                 {/* pages  */}
                 <Route path="/orders" element={<Orders />} />
+                <Route path="/MarketPlace" element={<MarketPlace />} />
 
                 {/* apps  */}
               </Routes>
