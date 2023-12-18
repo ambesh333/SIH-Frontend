@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SignupPage = () => {
+  const navigate = useNavigate();
+
   const [mobileNo, setMobileNo] = useState('');
   const [otp, setOtp] = useState('');
   const [aadharNo, setAadharNo] = useState('');
 
   const handleSignup = () => {
-    console.log('Signing up with:', { mobileNo, aadharNo, otp});
+    navigate('/register');
   };
 
   return (
     <div className="signup-card">
-      <h2>Sign Up</h2>
+      <h2 className='card-name'>Sign Up</h2>
       <div className="input-group">
         <input
           type="text"
@@ -40,7 +43,7 @@ const SignupPage = () => {
         />
       </div>
       <div className="button-group">
-        <button onClick={handleSignup}>Submit</button>
+        <button className='button-one' onClick={handleSignup}>Submit</button>
       </div>
     </div>
   );

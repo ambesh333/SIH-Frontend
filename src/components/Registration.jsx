@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Registration = () => {
+  const navigate = useNavigate(); 
   const [name, setName] = useState('');
   const [state, setState] = useState('');
   const [district, setDistrict] = useState('');
 
   const handleSignup = () => {
-    console.log('Signing up with:', { name, state, district });
+    navigate('/'); 
   };
 
   return (
     <div className="signup-card">
-      <h2>Sign Up</h2>
+      <h2 className='card-name'>Sign Up</h2>
       <div className="input-group">
         <input
           type="text"
@@ -40,7 +42,7 @@ const Registration = () => {
         />
       </div>
       <div className="button-group">
-        <button onClick={handleSignup}>Sign Up</button>
+        <button className='button-one' onClick={handleSignup}>Sign Up</button>
       </div>
     </div>
   );

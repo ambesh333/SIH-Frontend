@@ -9,7 +9,7 @@ const Card = ({ title, showSignupOption }) => {
   };
     return (
     <div className="card">
-      <h2>{title}</h2>
+      <h2 className='card-name'>{title}</h2>
       <div className="input-group">
         <input
           type="text"
@@ -23,7 +23,7 @@ const Card = ({ title, showSignupOption }) => {
         />
       </div>
       <div className="button-group">
-        <button>Login</button>
+        <button className='button-one'>Login</button>
         <div className='signup-container'>
           <span className="not-registered">Not registered?</span>
           <span className="signup-link" onClick={handleSignupClick}>
