@@ -43,7 +43,7 @@ const Ecommerce = () => {
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold text-gray-400">Earnings</p>
-              <p className="text-2xl">$63,448.78</p>
+              <p className="text-2xl">₹63,448.78</p>
             </div>
             <button
               type="button"
@@ -87,73 +87,54 @@ const Ecommerce = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap lg:flex-nowrap justify-center ">
-        <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
-          {DashBoardCards.map((item) => (
-            <div
-              key={item.title}
-              className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl "
-            >
-              <button
-                type="button"
-                style={{ color: item.iconColor, backgroundColor: item.iconBg }}
-                className="text-2xl opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl"
-              >
-                {item.icon}
-              </button>
-              <p className="mt-3">
-                <span className="text-lg font-semibold">{item.amount}</span>
-              </p>
-              <p className="text-sm lg:text-base text-gray-400  mt-1">
-                {item.title}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <div className="flex gap-10 m-4 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
           <div className="flex justify-between items-center gap-2">
             <p className="text-xl font-bold">
-              {" "}
-              FPO Finder : Find your perfect FPO.
+              FPO Finder: Find your perfect FPO.
             </p>
           </div>
           <div className="mt-10">
             <div className="flex flex-col">
-              <div className=" fontsemibold text-sm text-gray-900 mt-5 mb-6">
+              <div className="font-semibold text-sm text-gray-900 mt-5 mb-6">
                 FPO Finder is your tailored solution for finding the ideal FPO
                 to join.
               </div>
               <div>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-gray-900">
                   Effortlessly search for FPOs by name, state, and specific
-                  <br /> criteria, ensuring a perfect match for your farming
-                  goals.
+                  criteria:
+                  <br />
+                  <br />
+                  - Empower your harvest: Find your perfect FPO match.
+                  <br />
+                  - More income, less hassle: Find the FPO that works for you.
+                  <br />
+                  - Access markets, resources, and knowledge: Your FPO
+                  connection is a click away.
+                  <br />
+                  - Sustainable growth, collective bargaining: Join the FPO
+                  revolution.
+                  <br />
+                  - Empower your community, secure your future: Find your FPO
+                  path.
+                  <br />
+                  - From small farms to big dreams: FPO Finder, your bridge to
+                  success.
+                  <br />
+                  <br />
+                  Connect, collaborate, thrive: Take your first step with FPO
+                  Finder.
                 </p>
               </div>
             </div>
           </div>
-          {/* <div className="flex justify-between items-center mt-5 border-t-1 border-color">
-            <div className="mt-3">
-              <button className="text-white bg-blue-500 px-4 py-2 rounded-md">
-                Add
-              </button>
-            </div>
-            <p className="text-gray-400 text-sm">36 Recent Transactions</p>
-          </div> */}
         </div>
 
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760">
-          <div className="flex justify-between items-center gap-2 mb-10">
-            <input
-              type="text"
-              placeholder="Search..."
-              // value={searchTerm}
-              // onChange={handleSearchChange}
-            />
-          </div>
+          {/* <div className="flex justify-between items-center gap-2 mb-10">
+            <input type="text" placeholder="Search..." />
+          </div> */}
           <div className="md:w-full overflow-auto">
             <Orders />
           </div>
