@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Registration = () => {
-  const [name, setName] = useState('');
-  const [state, setState] = useState('');
-  const [district, setDistrict] = useState('');
+  const [name, setName] = useState("");
+  const [state, setState] = useState("");
+  const [district, setDistrict] = useState("");
 
   const handleSignup = () => {
-    console.log('Signing up with:', { name, state, district });
+    navigate("/");
   };
 
   return (
-    <div className='signup-card'>
-      <h2>Sign Up</h2>
-      <div className='input-group'>
+    <div className="signup-card">
+      <h2 className="card-name">Sign Up</h2>
+      <div className="input-group">
         <input
           type='text'
           id='name'
@@ -39,8 +39,10 @@ const Registration = () => {
           onChange={(e) => setDistrict(e.target.value)}
         />
       </div>
-      <div className='button-group'>
-        <button onClick={handleSignup}>Sign Up</button>
+      <div className="button-group">
+        <button className="button-one" onClick={handleSignup}>
+          Sign Up
+        </button>
       </div>
     </div>
   );

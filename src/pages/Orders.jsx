@@ -30,12 +30,76 @@ const Orders = () => {
   const [responseData, setResponseData] = useState([]);
   const [userId, setuserId] = useState(1);
 
+  const [documents, setDocuments] = useState([]);
+
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
       .then((response) => response.json())
       .then((data) => setResponseData(data))
       .catch((error) => console.error("Error fetching data:", error));
   }, [userId]);
+
+  // Example data for the request body
+  const requestBody = {
+    state: "Bihar",
+  };
+
+  // Fetch call to get distinct districts for a state
+  async function fetchDistinctDistricts() {
+    try {
+      const response = await fetch(
+        "https://backend-fpo-sih.onrender.com/api/distinct-district",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestBody),
+        }
+      );
+
+      const data = await response.json();
+      console.log("Distinct Districts:", data);
+    } catch (error) {
+      console.error("Error fetching distinct districts:", error);
+    }
+  }
+  // Fetch call to get all documents
+  useEffect(() => {
+    async function fetchDocuments() {
+      try {
+        const response = await fetch(
+          "https://backend-fpo-sih.onrender.com/api/documents"
+        );
+        const data = await response.json();
+        setDocuments(data);
+      } catch (error) {
+        console.error("Error fetching documents:", error);
+      }
+    }
+
+    fetchDocuments();
+  }, []);
+  async function fetchDistinctStates() {
+    try {
+      const response = await fetch(
+        "https://backend-fpo-sih.onrender.com/api/distinct-states"
+      );
+      const data = await response.json();
+      console.log("Distinct States:", data);
+      // Process data as needed
+    } catch (error) {
+      console.error("Error fetching distinct states:", error);
+    }
+  }
+
+  console.log("Documents:", documents);
+
+  // Call the function
+  fetchDistinctStates();
+
+  // Call the function
+  fetchDistinctDistricts();
 
   return (
     <div className="min-h-screen">
@@ -51,13 +115,13 @@ const Orders = () => {
                       <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                           <th scope="col" className="px-6 py-3">
-                            ID
+                            FPO Name
                           </th>
                           <th scope="col" className="px-6 py-3">
-                            Title
+                            State
                           </th>
                           <th scope="col" className="px-6 py-3">
-                            Body
+                            District
                           </th>
                           {/* <th scope="col" className="px-6 py-3">
                             hdshj
@@ -65,19 +129,22 @@ const Orders = () => {
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-200 dark:divide-gray-700 overflow-y-auto">
-                        {responseData.map((product, index) => (
-                          <tr key={index} className="bg-white dark:bg-gray-800">
+                        {documents.map((document, index) => (
+                          <tr
+                            key={document._id}
+                            className="bg-white dark:bg-gray-800"
+                          >
                             <th
                               scope="row"
                               className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white whitespace-nowrap"
                             >
-                              {product.id}
+                              {document["FPO Name"]}
                             </th>
                             <td className="px-6 py-4 text-sm">
-                              {product.title}
+                              {document["State Name"]}
                             </td>
                             <td className="px-6 py-4 text-sm">
-                              {product.body}
+                              {document.District}
                             </td>
                           </tr>
                         ))}

@@ -139,3 +139,143 @@ button:hover {
   margin: auto;
   margin-top: 100px;
 }
+
+.sideimage{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: relative;
+
+}
+.img-one{
+  height: 100%;
+  width: 130px;
+  margin-right: 0;
+  margin-left: 0;
+}
+.button-container{
+
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  background-color:green;
+  padding: 5px;
+  border-color: black;
+}
+.login{
+  width: 80px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 25px;
+
+  color: white;
+  /* background-color:red; */
+  margin-right: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.login:hover{
+background-color: transparent;
+color: white;
+transform: scale(1.3);
+}
+.banner{
+  padding: 80px;
+  background: url(../public/images/hpfarmer3.png);
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  /* margin: 10px; */
+}
+
+.footer {
+  background-color: #24262b;
+  padding: 70px;
+  color: #fff;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-col {
+  color: #ffffff;
+  width: 50%;
+  /* box-sizing: border-box; */
+  padding: 0 15px;
+  margin-bottom: 30px;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  position: relative; 
+}
+
+.footer-col h4::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  background-color: #e91e63;
+  height: 2px;
+  width: 100%; 
+}
+
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+
+.footer-col .social-links {
+  display: flex;
+  justify-content: flex-start;
+  /* padding-left: 30px;
+  margin-top: 10px; */
+}
+
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff;
+}
