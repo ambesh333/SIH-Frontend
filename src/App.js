@@ -6,11 +6,15 @@ import PredictionForm from "./components/PredictionForm";
 import PredictionResult from "./components/PredictionResult";
 import { makePrediction } from "./services/PredictionService";
 
+import { Login, Signup, Registration, Landing } from "./components";
+
 import { Navbar, Footer, Sidebar } from "./components";
 import {
   Ecommerce,
   Orders,
   MarketPlace,
+  FpoRegistration,
+  LandingPage,
   Calendar,
   Employees,
   Customers,
@@ -107,12 +111,20 @@ const App = () => {
             <div>
               <Routes>
                 {/* dashboard  */}
-                <Route path="/" element={<Ecommerce />} />
+                <Route path="/" element={<LandingPage />} />
                 <Route path="/DashBoard" element={<Ecommerce />} />
 
                 {/* pages  */}
                 <Route path="/orders" element={<Orders />} />
                 <Route path="/MarketPlace" element={<MarketPlace />} />
+                <Route
+                  path="/FPO Recomendation"
+                  element={<FpoRegistration />}
+                />
+
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/register" element={<Registration />} />
 
                 {/* apps  */}
               </Routes>

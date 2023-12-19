@@ -23,6 +23,9 @@ import {
   BsShield,
   BsChatLeft,
 } from "react-icons/bs";
+import { GoAlertFill } from "react-icons/go";
+import { FaCircleDollarToSlot } from "react-icons/fa6";
+import { HiMiniCreditCard } from "react-icons/hi2";
 import { BiColorFill } from "react-icons/bi";
 import { IoMdContacts } from "react-icons/io";
 import { RiContactsLine, RiStockLine } from "react-icons/ri";
@@ -528,8 +531,12 @@ export const links = [
         icon: <AiOutlineShoppingCart />,
       },
       {
-        name: "Market Place",
+        name: "MarketPlace",
         icon: <IoMdContacts />,
+      },
+      {
+        name: "FPO Recomendation",
+        icon: <RiContactsLine />,
       },
       {
         name: "Register FPO",
@@ -645,6 +652,37 @@ export const earningData = [
     iconColor: "rgb(0, 194, 146)",
     iconBg: "rgb(235, 250, 242)",
     pcColor: "red-600",
+  },
+];
+
+export const fpoRecom = [
+  {
+    icon: <GoAlertFill />,
+    amount: "Risk",
+    percentage: "-4%",
+    title: "Risk",
+    iconColor: "#03C9D7",
+    iconColor: "rgb(228, 106, 118)",
+    iconBg: "rgb(255, 244, 229)",
+  },
+  {
+    icon: <FaCircleDollarToSlot />,
+    amount: "Profit",
+    percentage: "+23%",
+    title: "Profit",
+    iconBg: "#E5FAFB",
+    // pcColor: "red-600",
+    pcColor: "green-600",
+  },
+  {
+    icon: <HiMiniCreditCard />,
+    amount: "Credibility",
+    percentage: "+38%",
+    title: "credibility",
+    iconColor: "rgb(228, 106, 118)",
+    iconBg: "rgb(255, 244, 229)",
+
+    pcColor: "green-600",
   },
 ];
 export const DashBoardCards = [
