@@ -59,10 +59,16 @@
   justify-content: space-around;
   align-items: center;
   padding: 100px;
+  height: 100vh;
+  background: linear-gradient(to top left, #adffcf 50%, transparent 50%),
+  linear-gradient(to bottom right, #ffffff 50%, transparent 50%);
 }
+
 
 .card-container {
   width: 450px; 
+  background-color: white;
+  border-radius: 30px; 
 }
 
 .card {
@@ -83,7 +89,8 @@
   font-family: 'Montserrat';
   font-size: 22px;
   margin-bottom: 15px;
-  color: #3498db;
+  color: #52B788;
+  font-weight: bold;
 }
 
 .toggle-container {
@@ -92,6 +99,8 @@
   height: 2em;
   display: flex;
   text-align: center;
+  border-top-left-radius: 10px; 
+  border-top-right-radius: 10px;
 
 }
 
@@ -105,6 +114,7 @@
   /* border: 1px solid #ccc; */
   background-color: #fff;
   box-sizing: border-box; 
+  
 }
 
 .toggle-button.active {
@@ -168,14 +178,36 @@ button:hover {
 
 .signup-card{
   border: 2px solid #95D5B2; 
-  border-radius: 10px; 
+  border-radius: 20px; 
   padding: 30px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   width: 400px;
   margin: auto;
   margin-top: 100px;
+  margin-bottom: 70px;
+  background-color: white;
+
 }
+
+.signup-background {
+  background: linear-gradient(to bottom right, #adffcf 50%, transparent 50%),
+              linear-gradient(to top left, #ffffff 50%, transparent 50%);
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reg-background{
+  background: linear-gradient(to top left, #adffcf 50%, transparent 50%),
+              linear-gradient(to bottom right, #ffffff 50%, transparent 50%);
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .sideimage{
 

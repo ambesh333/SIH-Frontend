@@ -12,6 +12,7 @@ const Registration = () => {
   };
 
   return (
+    <div className="reg-background">
     <div className="signup-card">
       <h2 className="card-name">Sign Up</h2>
       <div className="input-group">
@@ -46,6 +47,7 @@ const Registration = () => {
           Sign Up
         </button>
       </div>
+    </div>
     </div>
   );
 };
