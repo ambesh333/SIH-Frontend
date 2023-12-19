@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../App.css";
+import { useNavigate } from "react-router";
 const SignupPage = () => {
+  const navigate = useNavigate();
   const [mobileNo, setMobileNo] = useState("");
   const [otp, setOtp] = useState("");
   const [aadharNo, setAadharNo] = useState("");
@@ -14,27 +16,27 @@ const SignupPage = () => {
       <h2 className="card-name">Sign Up</h2>
       <div className="input-group">
         <input
-          type="text"
-          id="aadharNo"
-          placeholder="Aadhar number"
+          type='text'
+          id='aadharNo'
+          placeholder='Aadhar number'
           value={aadharNo}
           onChange={(e) => setAadharNo(e.target.value)}
         />
       </div>
-      <div className="input-group">
+      <div className='input-group'>
         <input
-          type="text"
-          id="mobileNo"
-          placeholder="Mobile Number"
+          type='text'
+          id='mobileNo'
+          placeholder='Mobile Number'
           value={mobileNo}
           onChange={(e) => setMobileNo(e.target.value)}
         />
       </div>
-      <div className="input-group">
+      <div className='input-group'>
         <input
-          type="text"
-          id="otp"
-          placeholder="1234"
+          type='text'
+          id='otp'
+          placeholder='1234'
           value={otp}
           onChange={(e) => setOtp(e.target.value)}
         />

@@ -1,12 +1,27 @@
-// Card.js
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useStateContext } from "../contexts/ContextProvider";
 
 const Card = ({ title, selectedRole, handleToggle }) => {
   const navigate = useNavigate();
+  const {
+    currentColor,
+    activeMenu,
+    setActiveMenu,
+    handleClick,
+    isClicked,
+    setScreenSize,
+    screenSize,
+    loginChecker,
+    setLoginChecker,
+  } = useStateContext();
 
   const handleSignupClick = () => {
-    navigate('/signup');
+    navigate("/signup");
+  };
+  const handleLogin = () => {
+    setLoginChecker(true);
+    navigate("/dashboard");
   };
 
   return (
@@ -35,7 +50,7 @@ const Card = ({ title, selectedRole, handleToggle }) => {
         <input type="password" placeholder="Password" />
       </div>
       <div className="button-group">
-        <button className='button-one'>Login</button>
+        <button className='button-one' onClick={handleLogin}>Login</button>
         <div className='signup-container'>
           <span className="not-registered">Not registered?</span>
           <span className="signup-link" onClick={handleSignupClick}>

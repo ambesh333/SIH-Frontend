@@ -42,11 +42,11 @@ const UserProfile = () => {
 
       <div className="mt-5">
         <Button
-          color="white"
+          color='white'
           bgColor={currentColor}
-          text="Logout"
-          borderRadius="10px"
-          width="full"
+          text='Logout'
+          borderRadius='10px'
+          width='full'
         />
       </div>
     </div>
