@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 const Registration = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [state, setState] = useState("");
   const [district, setDistrict] = useState("");
 
   const handleSignup = () => {
-    navigate("/");
+    navigate("/login");
   };
 
   return (

@@ -52,6 +52,7 @@ export const ContextProvider = ({ children }) => {
         themeSettings,
         setThemeSettings,
         loginChecker,
+        setLoginChecker,
       }}
     >
       {children}

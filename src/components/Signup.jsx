@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../App.css";
+import { useNavigate } from "react-router";
 const SignupPage = () => {
+  const navigate = useNavigate();
   const [mobileNo, setMobileNo] = useState("");
   const [otp, setOtp] = useState("");
   const [aadharNo, setAadharNo] = useState("");

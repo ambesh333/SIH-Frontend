@@ -13,11 +13,15 @@ const Card = ({ title, selectedRole, handleToggle }) => {
     setScreenSize,
     screenSize,
     loginChecker,
+    setLoginChecker,
   } = useStateContext();
 
   const handleSignupClick = () => {
-    setLoginChecker(True);
     navigate("/signup");
+  };
+  const handleLogin = () => {
+    setLoginChecker(true);
+    navigate("/dashboard");
   };
 
   return (
@@ -46,7 +50,7 @@ const Card = ({ title, selectedRole, handleToggle }) => {
         <input type="password" placeholder="Password" />
       </div>
       <div className="button-group">
-        <button className='button-one'>Login</button>
+        <button className='button-one' onClick={handleLogin}>Login</button>
         <div className='signup-container'>
           <span className="not-registered">Not registered?</span>
           <span className="signup-link" onClick={handleSignupClick}>
