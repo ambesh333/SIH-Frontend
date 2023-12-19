@@ -11,6 +11,7 @@ import {
   Ecommerce,
   Orders,
   MarketPlace,
+  FpoRegistration,
   Calendar,
   Employees,
   Customers,
@@ -113,6 +114,10 @@ const App = () => {
                 {/* pages  */}
                 <Route path="/orders" element={<Orders />} />
                 <Route path="/MarketPlace" element={<MarketPlace />} />
+                <Route
+                  path="/FPO Recomendation"
+                  element={<FpoRegistration />}
+                />
 
                 {/* apps  */}
               </Routes>
