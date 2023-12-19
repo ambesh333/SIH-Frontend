@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 const Registration = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [state, setState] = useState("");
   const [district, setDistrict] = useState("");
 
   const handleSignup = () => {
-    navigate("/");
+    navigate("/login");
   };
 
   return (
@@ -14,27 +16,27 @@ const Registration = () => {
       <h2 className="card-name">Sign Up</h2>
       <div className="input-group">
         <input
-          type="text"
-          id="name"
-          placeholder="Name"
+          type='text'
+          id='name'
+          placeholder='Name'
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
       </div>
-      <div className="input-group">
+      <div className='input-group'>
         <input
-          type="text"
-          id="state"
-          placeholder="State"
+          type='text'
+          id='state'
+          placeholder='State'
           value={state}
           onChange={(e) => setState(e.target.value)}
         />
       </div>
-      <div className="input-group">
+      <div className='input-group'>
         <input
-          type="text"
-          id="district"
-          placeholder="District"
+          type='text'
+          id='district'
+          placeholder='District'
           value={district}
           onChange={(e) => setDistrict(e.target.value)}
         />
