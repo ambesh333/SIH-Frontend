@@ -1,10 +1,22 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useStateContext } from "../contexts/ContextProvider";
 
 const Card = ({ title, showSignupOption }) => {
   const navigate = useNavigate();
+  const {
+    currentColor,
+    activeMenu,
+    setActiveMenu,
+    handleClick,
+    isClicked,
+    setScreenSize,
+    screenSize,
+    loginChecker,
+  } = useStateContext();
 
   const handleSignupClick = () => {
+    setLoginChecker(True);
     navigate("/signup");
   };
   return (

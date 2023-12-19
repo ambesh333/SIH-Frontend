@@ -25,6 +25,7 @@ import {
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
+window.myGlobalVariable = 'False';
 
 const App = () => {
   const {

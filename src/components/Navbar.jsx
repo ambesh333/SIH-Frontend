@@ -38,6 +38,7 @@ const Navbar = () => {
     isClicked,
     setScreenSize,
     screenSize,
+    loginChecker,
   } = useStateContext();
 
   useEffect(() => {
@@ -51,17 +52,20 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    if (screenSize <= 900) {
+    if (screenSize <= 900 || !loginChecker) {
       setActiveMenu(false);
     } else {
       setActiveMenu(true);
     }
   }, [screenSize]);
 
-  const handleActiveMenu = () => setActiveMenu(!activeMenu);
+  const handleActiveMenu = () => {
+    if(loginChecker) setActiveMenu(!activeMenu);
+  }
 
   return (
-    <div className='flex justify-between p-2 md:ml-6 md:mr-6 relative'>
+    
+       <div className='flex justify-between p-2 md:ml-6 md:mr-6 relative'>
       <NavButton
         title='Menu'
         customFunc={handleActiveMenu}
@@ -76,16 +80,11 @@ const Navbar = () => {
           icon={<FiShoppingCart />}
         /> */}
 
-        <TooltipComponent content='Profile' position='BottomCenter'>
+        {loginChecker && (<TooltipComponent content='Profile' position='BottomCenter'>
           <div
             className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
             onClick={() => handleClick('userProfile')}
           >
-            {/* <img
-              className="rounded-full w-8 h-8"
-              src={avatar}
-              alt="user-profile"
-            /> */}
             <CiUser className="rounded-full w-8 h-8" />
             <p>
               <span className='text-gray-400 text-14'>Hi,</span>{' '}
@@ -95,7 +94,7 @@ const Navbar = () => {
             </p>
             <MdKeyboardArrowDown className='text-gray-400 text-14' />
           </div>
-        </TooltipComponent>
+        </TooltipComponent>)}
 
         {isClicked.userProfile && <UserProfile />}
       </div>

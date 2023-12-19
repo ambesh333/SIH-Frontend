@@ -10,6 +10,7 @@ const initialState = {
 };
 
 export const ContextProvider = ({ children }) => {
+  const [loginChecker, setLoginChecker] = useState(false);
   const [screenSize, setScreenSize] = useState(undefined);
   const [currentColor, setCurrentColor] = useState('#03C9D7');
   const [currentMode, setCurrentMode] = useState('Light');
@@ -50,6 +51,7 @@ export const ContextProvider = ({ children }) => {
         setColor,
         themeSettings,
         setThemeSettings,
+        loginChecker,
       }}
     >
       {children}
