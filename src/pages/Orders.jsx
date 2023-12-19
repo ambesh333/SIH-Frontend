@@ -2,162 +2,167 @@ import React from "react";
 
 // import styles from "../style";
 import { useState, useEffect } from "react";
+import DropDown from "../components/DropDown";
+import axios from "axios";
 
-const NavLink = ({ href, label, current, icon, onClick }) => {
-  const baseClasses =
-    "flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white";
+const states = ["Tamil Nadu", "Goa", "Maharastra"];
 
-  const activeClasses =
-    "z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white";
-
-  return (
-    <li>
-      <a
-        href={href}
-        className={current ? activeClasses : baseClasses}
-        aria-current={current ? "page" : undefined}
-        onClick={onClick}
-      >
-        {icon && <span className="sr-only">{label}</span>}
-        {icon && icon}
-        {!icon && label}
-      </a>
-    </li>
-  );
-};
+const district = [
+  "Ariyalur",
+  "Coimbatore",
+  "Cuddalore",
+  "Dharmapuri",
+  "Dindigul",
+  "Erode",
+  "Kancheepuram",
+  "Kanyakumari",
+  "Karur",
+  "Krishnagiri",
+  "Madurai",
+  "Nagapattinam",
+  "Namakkal",
+  "Nilgiris",
+  "Perambalur",
+  "Pudukkottai",
+  "Ramanathapuram",
+  "Salem",
+  "Sivagangai",
+  "Thanjavur",
+  "Theni",
+  "Thiruvarur",
+  "Tirunelveli",
+  "Tiruppur",
+  "Tiruvallur",
+  "Tiruvannamalai",
+  "Trichy",
+  "Tuticorin",
+  "Vellore",
+  "Villupuram",
+  "Virudhunagar",
+];
+const label1 = "State";
+const label2 = "District";
 
 const Orders = () => {
-  const [responseData, setResponseData] = useState([]);
-  const [userId, setuserId] = useState(1);
-
   const [documents, setDocuments] = useState([]);
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedDistrict, setSelectedDistrict] = useState("");
+  const [allStates, setAllStates] = useState([]);
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
-      .then((response) => response.json())
-      .then((data) => setResponseData(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, [userId]);
-
-  // Example data for the request body
-  const requestBody = {
-    state: "Bihar",
-  };
-
-  // Fetch call to get distinct districts for a state
-  async function fetchDistinctDistricts() {
-    try {
-      const response = await fetch(
-        "https://backend-fpo-sih.onrender.com/api/distinct-district",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(requestBody),
-        }
-      );
-
-      const data = await response.json();
-      console.log("Distinct Districts:", data);
-    } catch (error) {
-      console.error("Error fetching distinct districts:", error);
-    }
-  }
-  // Fetch call to get all documents
-  useEffect(() => {
-    async function fetchDocuments() {
+    const fetchDocuments = async () => {
       try {
-        const response = await fetch(
-          "https://backend-fpo-sih.onrender.com/api/documents"
+        const response = await axios.post(
+          "https://backend-fpo-sih.onrender.com/api/fpos",
+          {
+            state: selectedState,
+            district: selectedDistrict,
+          }
         );
-        const data = await response.json();
-        setDocuments(data);
+        setDocuments(response.data);
       } catch (error) {
         console.error("Error fetching documents:", error);
       }
-    }
+    };
 
     fetchDocuments();
+  }, [selectedState, selectedDistrict]);
+
+  useEffect(() => {
+    const fetchAllDocuments = async () => {
+      try {
+        const response = await axios.get(
+          "https://backend-fpo-sih.onrender.com/api/documents"
+        );
+        setDocuments(response.data);
+      } catch (error) {
+        console.error("Error fetching all documents:", error);
+      }
+    };
+
+    fetchAllDocuments();
   }, []);
-  async function fetchDistinctStates() {
-    try {
-      const response = await fetch(
-        "https://backend-fpo-sih.onrender.com/api/distinct-states"
-      );
-      const data = await response.json();
-      console.log("Distinct States:", data);
-      // Process data as needed
-    } catch (error) {
-      console.error("Error fetching distinct states:", error);
-    }
-  }
 
-  console.log("Documents:", documents);
+  console.log(documents);
 
-  // Call the function
-  fetchDistinctStates();
+  useEffect(() => {
+    const fetchAllStates = async () => {
+      try {
+        const response = await axios.get(
+          "https://backend-fpo-sih.onrender.com/api/distinct-states"
+        );
+        setAllStates(response.data);
+      } catch (error) {
+        console.error("Error fetching all states:", error);
+      }
+    };
 
-  // Call the function
-  fetchDistinctDistricts();
+    fetchAllStates();
+  }, []);
+  console.log(allStates);
 
   return (
-    <div className="min-h-screen">
-      <div className="bg-primary flex justify-center items-start">
-        <div className="xl:max-w-[1280px] w-full">
-          <div className="flex flex-col justify-center items-center">
-            <div className="">
-              <div className="flex-1 flex justify-center items-start flex-col xl:px-0 sm:px-16 px-6">
-                <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-                  <div className="max-h-[calc(100vh-100px)] ">
-                    {/* Wrapping tbody in a div with overflow-y-auto */}
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                          <th scope="col" className="px-6 py-3">
-                            FPO Name
-                          </th>
-                          <th scope="col" className="px-6 py-3">
-                            State
-                          </th>
-                          <th scope="col" className="px-6 py-3">
-                            District
-                          </th>
-                          {/* <th scope="col" className="px-6 py-3">
-                            hdshj
-                          </th> */}
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-200 dark:divide-gray-700 overflow-y-auto">
-                        {documents.map((document, index) => (
-                          <tr
-                            key={document._id}
-                            className="bg-white dark:bg-gray-800"
-                          >
-                            <th
-                              scope="row"
-                              className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white whitespace-nowrap"
-                            >
-                              {document["FPO Name"]}
-                            </th>
-                            <td className="px-6 py-4 text-sm">
-                              {document["State Name"]}
-                            </td>
-                            <td className="px-6 py-4 text-sm">
-                              {document.District}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+    <>
+      <div className="flex justify-between items-center">
+        <div className="flex items-center">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="mr-2 h-8 mt-1"
+          />
+        </div>
+        <div className="flex justify-end items-center gap-4  mr-2 ">
+          <DropDown options={allStates} label={label1} />
+          <DropDown options={district} label={label2} />
+        </div>
+      </div>
+      <div className="flex flex-col">
+        <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+            <div className="overflow-hidden">
+              <div className="max-h-[400px] overflow-x-auto">
+                <table className="min-w-full text-left text-sm font-light">
+                  <thead className="border-b ">
+                    <tr>
+                      <th scope="col" className="px-6 py-4">
+                        #
+                      </th>
+                      <th scope="col" className="px-6 py-4">
+                        State
+                      </th>
+                      <th scope="col" className="px-6 py-4">
+                        District
+                      </th>
+                      <th scope="col" className="px-6 py-4">
+                        FPO Name
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className=" divide-y ">
+                    {documents.map((item, index) => (
+                      <tr key={item._id} className="border-b ">
+                        <td className="whitespace-nowrap px-6 py-4 font-medium">
+                          {index + 1}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4">
+                          {item["State Name"]}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4">
+                          {item.District}
+                        </td>
+                        <td className="whitespace-nowrap px-6 py-4">
+                          {item["FPO Name"]}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

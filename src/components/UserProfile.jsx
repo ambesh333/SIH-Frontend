@@ -1,17 +1,16 @@
 import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
 
-
-import { Button } from '.';
-import { userProfileData } from '../data/dummy';
-import { useStateContext } from '../contexts/ContextProvider';
-import avatar from '../data/farmer1.jpg';
-
+import { Button } from ".";
+import { userProfileData } from "../data/dummy";
+import { useStateContext } from "../contexts/ContextProvider";
+import avatar from "../data/farmer1.jpg";
 
 const UserProfile = () => {
   const { currentColor } = useStateContext();
 
   return (
+    <>
     <div className='nav-item absolute right-1 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96'>
       <div className='flex justify-between items-center'>
         <p className='font-semibold text-lg dark:text-gray-200'>User Profile</p>
@@ -31,7 +30,7 @@ const UserProfile = () => {
           <p className="text-gray-500 text-sm dark:text-gray-400">  Administrator   </p>
           <p className="text-gray-500 text-sm font-semibold dark:text-gray-400"> deepak@gmail.com </p>
 
-        
+        </div>
       </div>
       <div>
         {userProfileData.map((item, index) => (
@@ -66,7 +65,7 @@ const UserProfile = () => {
           width='full'
         />
     </div>
-    </div>
+    </>
   );
 };
 
