@@ -1,15 +1,33 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// Card.js
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Card = ({ title, showSignupOption }) => {
+const Card = ({ title, selectedRole, handleToggle }) => {
   const navigate = useNavigate();
 
   const handleSignupClick = () => {
-    navigate("/signup");
+    navigate('/signup');
   };
+
   return (
     <div className="card">
-      <h2 className="card-name">{title}</h2>
+      <div className="toggle-container">
+        <button
+          className={`toggle-button ${selectedRole === 'farmer' ? 'active' : ''}`}
+          onClick={() => handleToggle('farmer')}
+        >
+          Farmer
+        </button>
+        <button
+          className={`toggle-button ${selectedRole === 'fpo' ? 'active' : ''}`}
+          onClick={() => handleToggle('fpo')}
+        >
+          FPO
+        </button>
+      
+      </div>
+      <div className="card-rest">
+      <h2 className='card-name'>{selectedRole === 'farmer' ? 'Farmer' : 'FPO'} Login</h2>
       <div className="input-group">
         <input type="text" placeholder="Username" />
       </div>
@@ -17,13 +35,14 @@ const Card = ({ title, showSignupOption }) => {
         <input type="password" placeholder="Password" />
       </div>
       <div className="button-group">
-        <button className="button-one">Login</button>
-        <div className="signup-container">
+        <button className='button-one'>Login</button>
+        <div className='signup-container'>
           <span className="not-registered">Not registered?</span>
           <span className="signup-link" onClick={handleSignupClick}>
             Sign Up
           </span>
         </div>
+      </div>
       </div>
     </div>
   );
