@@ -22,6 +22,7 @@ import {
   BsCurrencyDollar,
   BsShield,
   BsChatLeft,
+<<<<<<< HEAD
 } from 'react-icons/bs';
 import { BiColorFill } from 'react-icons/bi';
 import { IoMdContacts } from 'react-icons/io';
@@ -43,6 +44,32 @@ import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
 import product8 from './product8.jpg';
+=======
+} from "react-icons/bs";
+import { GoAlertFill } from "react-icons/go";
+import { FaCircleDollarToSlot } from "react-icons/fa6";
+import { HiMiniCreditCard } from "react-icons/hi2";
+import { BiColorFill } from "react-icons/bi";
+import { IoMdContacts } from "react-icons/io";
+import { RiContactsLine, RiStockLine } from "react-icons/ri";
+import { MdOutlineSupervisorAccount } from "react-icons/md";
+import { HiOutlineRefresh } from "react-icons/hi";
+import { TiTick } from "react-icons/ti";
+import { GiLouvrePyramid } from "react-icons/gi";
+import { GrLocation } from "react-icons/gr";
+import avatar from "./avatar.jpg";
+import avatar2 from "./avatar2.jpg";
+import avatar3 from "./avatar3.png";
+import avatar4 from "./avatar4.jpg";
+import product1 from "./product1.jpg";
+import product2 from "./product2.jpg";
+import product3 from "./product3.jpg";
+import product4 from "./product4.jpg";
+import product5 from "./product5.jpg";
+import product6 from "./product6.jpg";
+import product7 from "./product7.jpg";
+import product8 from "./product8.jpg";
+>>>>>>> fe9f17a59115dd1bbc4224af949f82f734056353
 
 export const gridOrderImage = (props) => (
   <div>
@@ -528,11 +555,23 @@ export const links = [
         icon: <AiOutlineShoppingCart />,
       },
       {
+<<<<<<< HEAD
         name: 'Market Place',
         icon: <IoMdContacts />,
       },
       {
         name: 'Register FPO',
+=======
+        name: "MarketPlace",
+        icon: <IoMdContacts />,
+      },
+      {
+        name: "FPO Recomendation",
+        icon: <RiContactsLine />,
+      },
+      {
+        name: "Register FPO",
+>>>>>>> fe9f17a59115dd1bbc4224af949f82f734056353
         icon: <RiContactsLine />,
       },
     ],
@@ -645,6 +684,37 @@ export const earningData = [
     iconColor: 'rgb(0, 194, 146)',
     iconBg: 'rgb(235, 250, 242)',
     pcColor: 'red-600',
+  },
+];
+
+export const fpoRecom = [
+  {
+    icon: <GoAlertFill />,
+    amount: "Risk",
+    percentage: "-4%",
+    title: "Risk",
+    iconColor: "#03C9D7",
+    iconColor: "rgb(228, 106, 118)",
+    iconBg: "rgb(255, 244, 229)",
+  },
+  {
+    icon: <FaCircleDollarToSlot />,
+    amount: "Profit",
+    percentage: "+23%",
+    title: "Profit",
+    iconBg: "#E5FAFB",
+    // pcColor: "red-600",
+    pcColor: "green-600",
+  },
+  {
+    icon: <HiMiniCreditCard />,
+    amount: "Credibility",
+    percentage: "+38%",
+    title: "credibility",
+    iconColor: "rgb(228, 106, 118)",
+    iconBg: "rgb(255, 244, 229)",
+
+    pcColor: "green-600",
   },
 ];
 export const DashBoardCards = [

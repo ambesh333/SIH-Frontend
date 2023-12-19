@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { FiSettings } from 'react-icons/fi';
-import { TooltipComponent } from '@syncfusion/ej2-react-popups';
+import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { FiSettings } from "react-icons/fi";
+import { TooltipComponent } from "@syncfusion/ej2-react-popups";
+import PredictionForm from "./components/PredictionForm";
+import PredictionResult from "./components/PredictionResult";
+import { makePrediction } from "./services/PredictionService";
 
 import { Navbar, Footer, Sidebar } from './components';
 import {
   Ecommerce,
   Orders,
+  MarketPlace,
+  FpoRegistration,
   Calendar,
   Employees,
   Customers,
@@ -37,6 +42,33 @@ const App = () => {
       setCurrentMode(currentThemeMode);
     }
   }, []);
+
+  // const [data, setData] = useState({
+  //   State: 'Chattisgarh',
+  //   // ... other data ...
+  // });
+  // const [prediction, setPrediction] = useState(null);
+  // const [error, setError] = useState(null);
+
+  // const handleChange = (event) => {
+  //   setData({
+  //     ...data,
+  //     [event.target.name]: event.target.value,
+  //   });
+  // };
+
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   try {
+  //     const response = await makePrediction(data);
+  //     setPrediction(response.prediction);
+  //     setError(null);
+  //   } catch (error) {
+  //     setError(error.message);
+  //     setPrediction(null);
+  //   }
+  // };
 
   return (
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
@@ -80,7 +112,12 @@ const App = () => {
                 <Route path='/DashBoard' element={<Ecommerce />} />
 
                 {/* pages  */}
-                <Route path='/orders' element={<Orders />} />
+                <Route path="/orders" element={<Orders />} />
+                <Route path="/MarketPlace" element={<MarketPlace />} />
+                <Route
+                  path="/FPO Recomendation"
+                  element={<FpoRegistration />}
+                />
 
                 {/* apps  */}
               </Routes>
@@ -88,6 +125,11 @@ const App = () => {
             <Footer />
           </div>
         </div>
+        {/* <div className="App">
+          <h1>Price Prediction</h1>
+          <PredictionForm onSubmit={handleSubmit} data={data} handleChange={handleChange} />
+          <PredictionResult prediction={prediction} error={error} />
+        </div> */}
       </BrowserRouter>
     </div>
   );

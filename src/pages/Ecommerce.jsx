@@ -37,10 +37,10 @@ const Ecommerce = () => {
   const { currentColor, currentMode } = useStateContext();
 
   return (
-    <div className='mt-24'>
-      <div className='flex flex-wrap lg:flex-nowrap justify-center '>
-        <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center'>
-          <div className='flex justify-between items-center'>
+    <div className="">
+      <div className="flex flex-wrap lg:flex-nowrap justify-center ">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
+          <div className="flex justify-between items-center">
             <div>
               <p className='font-bold text-gray-400'>Earnings</p>
               <p className='text-2xl'>$63,448.78</p>
@@ -101,11 +101,8 @@ const Ecommerce = () => {
               >
                 {item.icon}
               </button>
-              <p className='mt-3'>
-                <span className='text-lg font-semibold'>{item.amount}</span>
-                {/* <span className={`text-sm text-${item.pcColor} ml-2`}>
-                  {item.percentage}
-                </span> */}
+              <p className="mt-3">
+                <span className="text-lg font-semibold">{item.amount}</span>
               </p>
               <p className='text-sm lg:text-base text-gray-400  mt-1'>
                 {item.title}
@@ -115,57 +112,41 @@ const Ecommerce = () => {
         </div>
       </div>
 
-      <div className='flex gap-10 m-4 flex-wrap justify-center'>
-        <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl'>
-          <div className='flex justify-between items-center gap-2'>
-            <p className='text-xl font-semibold'>Recomendations</p>
-            <input
-              type='text'
-              placeholder='Search...'
-              // value={searchTerm}
-              // onChange={handleSearchChange}
-            />
-            {/* <DropDown currentMode={currentMode} /> */}
+      <div className="flex gap-10 m-4 flex-wrap justify-center">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
+          <div className="flex justify-between items-center gap-2">
+            <p className="text-xl font-bold">
+              {" "}
+              FPO Finder : Find your perfect FPO.
+            </p>
           </div>
-          <div className='mt-10 w-72 md:w-400'>
-            {recentTransactions.map((item) => (
-              <div key={item.title} className='flex justify-between mt-4'>
-                <div className='flex gap-4'>
-                  <button
-                    type='button'
-                    style={{
-                      color: item.iconColor,
-                      backgroundColor: item.iconBg,
-                    }}
-                    className='text-2xl rounded-lg p-4 hover:drop-shadow-xl'
-                  >
-                    {item.icon}
-                  </button>
-                  <div>
-                    <p className='text-md font-semibold'>{item.title}</p>
-                    <p className='text-sm text-gray-400'>{item.desc}</p>
-                  </div>
-                </div>
-                <p className={`text-${item.pcColor}`}>{item.amount}</p>
+          <div className="mt-10">
+            <div className="flex flex-col">
+              <div className=" fontsemibold text-sm text-gray-900 mt-5 mb-6">
+                FPO Finder is your tailored solution for finding the ideal FPO
+                to join.
               </div>
-            ))}
-          </div>
-          <div className='flex justify-between items-center mt-5 border-t-1 border-color'>
-            <div className='mt-3'>
-              <Button
-                color='white'
-                bgColor={currentColor}
-                text='Add'
-                borderRadius='10px'
-              />
+              <div>
+                <p className="text-sm text-gray-400">
+                  Effortlessly search for FPOs by name, state, and specific
+                  <br /> criteria, ensuring a perfect match for your farming
+                  goals.
+                </p>
+              </div>
             </div>
-
-            <p className='text-gray-400 text-sm'>36 Recent Transactions</p>
           </div>
+          {/* <div className="flex justify-between items-center mt-5 border-t-1 border-color">
+            <div className="mt-3">
+              <button className="text-white bg-blue-500 px-4 py-2 rounded-md">
+                Add
+              </button>
+            </div>
+            <p className="text-gray-400 text-sm">36 Recent Transactions</p>
+          </div> */}
         </div>
-        <div className='bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760'>
-          <div className='flex justify-between items-center gap-2 mb-10'>
-            <p className='text-xl font-semibold'>Search FPO'S</p>
+
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760">
+          <div className="flex justify-between items-center gap-2 mb-10">
             <input
               type='text'
               placeholder='Search...'
@@ -173,8 +154,7 @@ const Ecommerce = () => {
               // onChange={handleSearchChange}
             />
           </div>
-          <div className='md:w-full overflow-auto'>
-            {/* <LineChart /> */}
+          <div className="md:w-full overflow-auto">
             <Orders />
           </div>
         </div>
