@@ -31,7 +31,7 @@ const UserProfile = () => {
           <p className="text-gray-500 text-sm dark:text-gray-400">  Administrator   </p>
           <p className="text-gray-500 text-sm font-semibold dark:text-gray-400"> deepak@gmail.com </p>
 
-        </div>
+        
       </div>
       <div>
         {userProfileData.map((item, index) => (
@@ -65,7 +65,7 @@ const UserProfile = () => {
           borderRadius="10px"
           width="full"
         />
-      </div>
+    </div>
     </div>
   );
 };
