@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { FaRupeeSign, FaSearch } from 'react-icons/fa';
+import { FaRupeeSign } from 'react-icons/fa';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { useStateContext } from '../contexts/ContextProvider';
+
 import product9 from '../data/product9.jpg';
 import machine from '../images/machine.jpg';
 import machine1 from '../images/machine1.jpeg';
@@ -11,33 +12,32 @@ import machine4 from '../images/machine4.jpeg';
 import machine5 from '../images/machine5.jpeg';
 import Hire from './Hire';
 
-const DropDown = ({ currentMode }) => (
-  <div className='w-28 border-1 border-color px-2 py-1 rounded-md'>
-    {/* ... (Dropdown component) */}
-  </div>
+const DropDown = ({ options, selected, onSelect }) => (
+  <div className='w-32 border-1 border-color px-2 py-1 rounded-md'>
+  <DropDownListComponent
+    id='filter'
+    placeholder="Filter"
+    fields={{ text: 'value', value: 'value' }}
+    style={{ border: 'none' }}
+    value={selected}
+    dataSource={[
+      { value: 'All', text: 'All' }, 
+      ...options.map((option) => ({ value: option, text: option }))
+    ]}
+    change={(e) => onSelect(e.value)}
+  />
+</div>
 );
+
+
 
 const Chc = () => {
   const { currentColor, currentMode } = useStateContext();
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedFilter, setSelectedFilter] = useState('All');
 
-  // const hiringItems = [
-  //   { id: 1, title: 'JCB ', description: 'Description 1', image: machine },
-  //   { id: 2, title: 'Thrasher', description: 'Description 2', image: machine1 },
-  //   { id: 3, title: 'Tractor', description: 'Description 3', image: machine2 },
-  //   { id: 4, title: 'Tractor', description: 'Description 4', image: machine3 },
-  //   { id: 5, title: 'Thrasher', description: 'Description 5', image: machine4 },
-  //   {
-  //     id: 6,
-  //     title: 'Harvester',
-  //     description: 'Description 6',
-  //     image: machine5,
-  //   },
-  //   { id: 7, title: 'Harvester', description: 'Description 7', image: machine },
-  //   { id: 8, title: 'Thrasher', description: 'Description 8', image: machine1 },
-  // ];
   const hiringItems = [
     { 
       id: 1, 
@@ -67,7 +67,7 @@ const Chc = () => {
     },
     { 
       id: 3, 
-      title: 'small Tractor', 
+      title: 'Tractor', 
       description: `
         Model: LMN-300<br>
         Engine Power: 50 HP<br>
@@ -80,7 +80,7 @@ const Chc = () => {
     },
     { 
       id: 4, 
-      title: 'big Tractor', 
+      title: 'Tractor', 
       description: `
         Model: DEF-700<br>
         Engine Power: 120 HP<br>
@@ -93,7 +93,7 @@ const Chc = () => {
     },
     { 
       id: 5, 
-      title: 'medium Thrasher', 
+      title: 'Thrasher', 
       description: `
         Model: MNO-1500<br>
         Threshing Capacity: 1.5 tons/hour<br>
@@ -132,7 +132,7 @@ const Chc = () => {
     },
     { 
       id: 8, 
-      title: 'small Thrasher', 
+      title: 'Thrasher', 
       description: `
         Model: VWX-1200<br>
         Threshing Capacity: 1.2 tons/hour<br>
@@ -144,7 +144,7 @@ const Chc = () => {
       basePrice: 600,  
     },
   ];
-  
+  const filterOptions = ['Tractor', 'Thrasher', 'Harvester']; 
 
   const openHire = (item) => {
     setSelectedItem(item);
@@ -155,21 +155,39 @@ const Chc = () => {
     setIsModalOpen(false);
   };
 
+  const handleFilterChange = (value) => {
+    setSelectedFilter(value);
+  };
+
+  const filteredItems = hiringItems.filter((item) => {
+    if (selectedFilter === 'All' || item.title === selectedFilter) {
+      return true;
+    }
+    return false;
+  });
+
+
   return (
-    <div className='mt-24'>
+    <div className='top-box'>
       <div className='flex flex-col items-center mb-4'>
-        {/* <div className="relative mb-2"> */}
-        <input
-          type='text'
-          placeholder='Search...'
-          className='hire-search'
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        {/* </div> */}
+        <h2 className='page-name'>Custom Hiring Centre</h2>
+        <div className='flex items-center search-container'>
+          <input
+            type='text'
+            placeholder='Search...'
+            className='hire-search'
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <DropDown
+            options={filterOptions}
+            selected={selectedFilter}
+            onSelect={handleFilterChange}
+          />
+        </div>
       </div>
       <div className='flex flex-wrap lg:flex-nowrap justify-center'>
-        {hiringItems.map((item) => (
+        {filteredItems.map((item) => (
           <div
             key={item.id}
             className='w-64 mx-4 my-8 bg-white rounded-lg overflow-hidden shadow-lg flex flex-col'
@@ -182,7 +200,6 @@ const Chc = () => {
             <div className='p-4'>
               <h3 className='text-lg font-semibold mb-2'>{item.title}</h3>
               <p className='text-gray-600' dangerouslySetInnerHTML={{ __html: item.description }}></p>
-
               <button
                 className='mt-2 bg-blue-500 text-white px-4 py-2 rounded-md'
                 onClick={() => openHire(item)}

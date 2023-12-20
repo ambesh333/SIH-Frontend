@@ -7,7 +7,7 @@ const Sell = ({ isOpen, onClose, item }) => {
     return null;
   }
 
-  const basePrice = 500; 
+  const basePrice = parseFloat(item.basePrice);  
   const totalPrice = basePrice * quantity;
 
   const handleIncrease = () => {
