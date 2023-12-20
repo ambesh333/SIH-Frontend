@@ -9,3 +9,5 @@ export { default as MarketPlace } from "./MarketPlace";
 export { default as FpoRegistration } from "./FpoRegistration";
 
 export { default as LandingPage } from "./LandingPage";
+
+export { default as Chc } from "./Chc";
