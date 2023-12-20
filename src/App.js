@@ -25,7 +25,7 @@ import {
   ColorPicker,
   Editor,
   Chc,
-  Dbs,
+  Dbs
 } from './pages';
 import './App.css';
 
@@ -37,7 +37,7 @@ const App = () => {
     new window.google.translate.TranslateElement(
       {
         pageLanguage: 'en',
-        autoDisplay: false,
+        autoDisplay: false
       },
       'google_translate_element'
     );
@@ -58,7 +58,7 @@ const App = () => {
     activeMenu,
     currentColor,
     themeSettings,
-    setThemeSettings,
+    setThemeSettings
   } = useStateContext();
 
   useEffect(() => {
@@ -141,6 +141,7 @@ const App = () => {
                   path='/FPO Recomendation'
                   element={<FpoRegistration />}
                 />
+                <Route path='/Compare FPO' element={<Compare />} />
 
                 <Route path='/login' element={<Login />} />
                 <Route path='/signup' element={<Signup />} />

@@ -12,6 +12,6 @@ export { default as LandingPage } from './LandingPage';
 
 export { default as Chc } from './Chc';
 
-export { default as Chc } from './Chc';
-
 export { default as Dbs } from './Dbs';
+
+export { default as Compare } from './Compare';
