@@ -4,12 +4,14 @@ import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { useStateContext } from '../contexts/ContextProvider';
 
 import product9 from '../data/product9.jpg';
-import machine from '../images/machine.jpg';
-import machine1 from '../images/machine1.jpeg';
-import machine2 from '../images/machine2.jpeg';
-import machine3 from '../images/machine3.jpeg';
-import machine4 from '../images/machine4.jpeg';
-import machine5 from '../images/machine5.jpeg';
+import JCB from '../images/JCB.jpg';
+import thresher from '../images/thresher.jpg';
+import tractor from '../images/tractor2.jpg';
+import irrigation from '../images/irrigation.jpg';
+import planters from '../images/planters.jpg';
+import cultivator from '../images/cultivator.jpg';
+import Harvester from '../images/harvester.jpg';
+import Seedeqpt from '../images/seedsower.png';
 import Hire from './Hire';
 
 const DropDown = ({ options, selected, onSelect }) => (
