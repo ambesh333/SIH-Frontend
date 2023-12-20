@@ -6,6 +6,7 @@ import { useStateContext } from '../contexts/ContextProvider';
 import product9 from '../data/product9.jpg';
 import JCB from '../images/JCB.jpg';
 import thresher from '../images/thresher.jpg';
+import tractor2 from '../images/tractoe.jpg';
 import tractor from '../images/tractor2.jpg';
 import irrigation from '../images/irrigation.jpg';
 import planters from '../images/planters.jpg';
@@ -51,12 +52,12 @@ const Chc = () => {
         Transmission: Manual<br>
         Year of Manufacture: 2022<br>
         Condition: Excellent`, 
-      image: machine,
+      image: JCB,
       basePrice: 400, 
     },
     { 
       id: 2, 
-      title: 'Thrasher', 
+      title: 'Thresher', 
       description: `
         Model: ABC-2000<br>
         Threshing Capacity: 2 tons/hr<br>
@@ -64,7 +65,7 @@ const Chc = () => {
         Fuel Consumption: 5 l/hr<br>
         Year of Manufacture: 2021<br>
         Condition: Well-maintained`, 
-      image: machine1,
+      image: thresher,
       basePrice: 500, 
     },
     { 
@@ -77,7 +78,7 @@ const Chc = () => {
         Transmission: Automatic<br>
         Year of Manufacture: 2019<br>
         Condition: Good`, 
-      image: machine2,
+      image: tractor,
       basePrice: 600, 
     },
     { 
@@ -90,20 +91,20 @@ const Chc = () => {
         Transmission: Manual<br>
         Year of Manufacture: 2020<br>
         Condition: Excellent`, 
-      image: machine3,
+      image: tractor2,
       basePrice: 300, 
     },
     { 
       id: 5, 
-      title: 'Thrasher', 
+      title: 'Seed Sower', 
       description: `
         Model: MNO-1500<br>
-        Threshing Capacity: 1.5 tons/hour<br>
+        Sowing Capacity: 1.5 tons/hour<br>
         Power Source: Diesel Engine<br>
         Fuel Consumption: 4 ls/hr<br>
         Year of Manufacture: 2020<br>
         Condition: Well-maintained`, 
-      image: machine4,
+      image: Seedeqpt,
       basePrice: 500, 
     },
     {
@@ -116,12 +117,12 @@ const Chc = () => {
         Fuel Consumption: 6 l/hr<br>
         Year of Manufacture: 2021<br>
         Condition: Excellent`, 
-      image: machine5,
+      image: Harvester,
       basePrice: 800,
     },
     { 
       id: 7, 
-      title: 'Harvester', 
+      title: 'Planter', 
       description: `
         Model: STU-1800<br>
         Harvesting Capacity: 1800 sq. meters/hour<br>
@@ -129,24 +130,24 @@ const Chc = () => {
         Fuel Consumption: 5 ls/hr<br>
         Year of Manufacture: 2019<br>
         Condition: Good`, 
-      image: machine,
+      image: planters,
       basePrice: 700, 
     },
     { 
       id: 8, 
-      title: 'Thrasher', 
+      title: 'Cultivator', 
       description: `
         Model: VWX-1200<br>
-        Threshing Capacity: 1.2 tons/hour<br>
+        Cultivating Capacity: 1.2 tons/hour<br>
         Power Source: Diesel Engine<br>
         Fuel Consumption: 3 l/hr<br>
         Year of Manufacture: 2018<br>
         Condition: Fair`, 
-      image: machine1,
+      image: cultivator,
       basePrice: 600,  
     },
   ];
-  const filterOptions = ['Tractor', 'Thrasher', 'Harvester']; 
+  const filterOptions = ['Tractor', 'Thrasher', 'Harvester', 'Seed Sower','Planter', 'Cultivator']; 
 
   const openHire = (item) => {
     setSelectedItem(item);
