@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { FaRupeeSign, FaSearch } from 'react-icons/fa';
+import { FaRupeeSign } from 'react-icons/fa';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { useStateContext } from '../contexts/ContextProvider';
+
 import product9 from '../data/product9.jpg';
 import JCB from '../images/JCB.jpg';
 import thresher from '../images/thresher.jpg';
+import tractor2 from '../images/tractoe.jpg';
 import tractor from '../images/tractor2.jpg';
 import irrigation from '../images/irrigation.jpg';
 import planters from '../images/planters.jpg';
@@ -13,44 +15,139 @@ import Harvester from '../images/harvester.jpg';
 import Seedeqpt from '../images/seedsower.png';
 import Hire from './Hire';
 
-const DropDown = ({ currentMode }) => (
-  <div className='w-28 border-1 border-color px-2 py-1 rounded-md'>
-    {/* ... (Dropdown component) */}
-  </div>
+const DropDown = ({ options, selected, onSelect }) => (
+  <div className='w-32 border-1 border-color px-2 py-1 rounded-md'>
+  <DropDownListComponent
+    id='filter'
+    placeholder="Filter"
+    fields={{ text: 'value', value: 'value' }}
+    style={{ border: 'none' }}
+    value={selected}
+    dataSource={[
+      { value: 'All', text: 'All' }, 
+      ...options.map((option) => ({ value: option, text: option }))
+    ]}
+    change={(e) => onSelect(e.value)}
+  />
+</div>
 );
+
+
 
 const Chc = () => {
   const { currentColor, currentMode } = useStateContext();
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedFilter, setSelectedFilter] = useState('All');
 
-  // const hiringItems = [
-  //   { id: 1, title: 'JCB ', description: 'Description 1', image: machine },
-  //   { id: 2, title: 'Thrasher', description: 'Description 2', image: machine1 },
-  //   { id: 3, title: 'Tractor', description: 'Description 3', image: machine2 },
-  //   { id: 4, title: 'Tractor', description: 'Description 4', image: machine3 },
-  //   { id: 5, title: 'Thrasher', description: 'Description 5', image: machine4 },
-  //   {
-  //     id: 6,
-  //     title: 'Harvester',
-  //     description: 'Description 6',
-  //     image: machine5,
-  //   },
-  //   { id: 7, title: 'Harvester', description: 'Description 7', image: machine },
-  //   { id: 8, title: 'Thrasher', description: 'Description 8', image: machine1 },
-  // ];
   const hiringItems = [
-    { id: 1, title: 'JCB ', description: 'Description 1', image: JCB },
-    { id: 2, title: 'Thresher', description: 'Description 2', image: thresher },
-    { id: 3, title: 'Irrigation Equipment', description: 'Description 3', image: irrigation },
-    { id: 4, title: 'Tractor', description: 'Description 4', image: tractor},
-    { id: 5, title: 'Planter', description: 'Description 5', image: planters },
-    { id: 6, title: 'Cultivator', description: 'Description 5', image: cultivator },
-    { id: 7, title: 'Harvester', description: 'Description 5', image: Harvester },
-    { id: 8, title: 'Seed Sowing Equipment', description: 'Description 5', image: Seedeqpt },
+    { 
+      id: 1, 
+      title: 'JCB', 
+      description: `    
+        Model: XYZ-5000<br>
+        Engine Power: 100 HP<br>
+        Fuel Type: Diesel<br>
+        Transmission: Manual<br>
+        Year of Manufacture: 2022<br>
+        Condition: Excellent`, 
+      image: JCB,
+      basePrice: 400, 
+    },
+    { 
+      id: 2, 
+      title: 'Thresher', 
+      description: `
+        Model: ABC-2000<br>
+        Threshing Capacity: 2 tons/hr<br>
+        Power Source: Diesel Engine<br>
+        Fuel Consumption: 5 l/hr<br>
+        Year of Manufacture: 2021<br>
+        Condition: Well-maintained`, 
+      image: thresher,
+      basePrice: 500, 
+    },
+    { 
+      id: 3, 
+      title: 'Tractor', 
+      description: `
+        Model: LMN-300<br>
+        Engine Power: 50 HP<br>
+        Fuel Type: Diesel<br>
+        Transmission: Automatic<br>
+        Year of Manufacture: 2019<br>
+        Condition: Good`, 
+      image: tractor,
+      basePrice: 600, 
+    },
+    { 
+      id: 4, 
+      title: 'Tractor', 
+      description: `
+        Model: DEF-700<br>
+        Engine Power: 120 HP<br>
+        Fuel Type: Diesel<br>
+        Transmission: Manual<br>
+        Year of Manufacture: 2020<br>
+        Condition: Excellent`, 
+      image: tractor2,
+      basePrice: 300, 
+    },
+    { 
+      id: 5, 
+      title: 'Seed Sower', 
+      description: `
+        Model: MNO-1500<br>
+        Sowing Capacity: 1.5 tons/hour<br>
+        Power Source: Diesel Engine<br>
+        Fuel Consumption: 4 ls/hr<br>
+        Year of Manufacture: 2020<br>
+        Condition: Well-maintained`, 
+      image: Seedeqpt,
+      basePrice: 500, 
+    },
+    {
+      id: 6,
+      title: 'Harvester',
+      description: `
+        Model: PQR-2500<br>
+        Harvesting Capacity: 2500 sq. meters/hour<br>
+        Power Source: Diesel Engine<br>
+        Fuel Consumption: 6 l/hr<br>
+        Year of Manufacture: 2021<br>
+        Condition: Excellent`, 
+      image: Harvester,
+      basePrice: 800,
+    },
+    { 
+      id: 7, 
+      title: 'Planter', 
+      description: `
+        Model: STU-1800<br>
+        Harvesting Capacity: 1800 sq. meters/hour<br>
+        Power Source: Diesel Engine<br>
+        Fuel Consumption: 5 ls/hr<br>
+        Year of Manufacture: 2019<br>
+        Condition: Good`, 
+      image: planters,
+      basePrice: 700, 
+    },
+    { 
+      id: 8, 
+      title: 'Cultivator', 
+      description: `
+        Model: VWX-1200<br>
+        Cultivating Capacity: 1.2 tons/hour<br>
+        Power Source: Diesel Engine<br>
+        Fuel Consumption: 3 l/hr<br>
+        Year of Manufacture: 2018<br>
+        Condition: Fair`, 
+      image: cultivator,
+      basePrice: 600,  
+    },
   ];
-  
+  const filterOptions = ['Tractor', 'Thrasher', 'Harvester', 'Seed Sower','Planter', 'Cultivator']; 
 
   const openHire = (item) => {
     setSelectedItem(item);
@@ -61,21 +158,39 @@ const Chc = () => {
     setIsModalOpen(false);
   };
 
+  const handleFilterChange = (value) => {
+    setSelectedFilter(value);
+  };
+
+  const filteredItems = hiringItems.filter((item) => {
+    if (selectedFilter === 'All' || item.title === selectedFilter) {
+      return true;
+    }
+    return false;
+  });
+
+
   return (
-    <div className='mt-24'>
+    <div className='top-box'>
       <div className='flex flex-col items-center mb-4'>
-        {/* <div className="relative mb-2"> */}
-        <input
-          type='text'
-          placeholder='Search...'
-          className='hire-search'
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        {/* </div> */}
+        <h2 className='page-name'>Custom Hiring Centre</h2>
+        <div className='flex items-center search-container'>
+          <input
+            type='text'
+            placeholder='Search...'
+            className='hire-search'
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <DropDown
+            options={filterOptions}
+            selected={selectedFilter}
+            onSelect={handleFilterChange}
+          />
+        </div>
       </div>
       <div className='flex flex-wrap lg:flex-nowrap justify-center'>
-        {hiringItems.map((item) => (
+        {filteredItems.map((item) => (
           <div
             key={item.id}
             className='w-64 mx-4 my-8 bg-white rounded-lg overflow-hidden shadow-lg flex flex-col'
@@ -88,7 +203,6 @@ const Chc = () => {
             <div className='p-4'>
               <h3 className='text-lg font-semibold mb-2'>{item.title}</h3>
               <p className='text-gray-600' dangerouslySetInnerHTML={{ __html: item.description }}></p>
-
               <button
                 className='mt-2 bg-blue-500 text-white px-4 py-2 rounded-md'
                 onClick={() => openHire(item)}

@@ -12,11 +12,23 @@ import machine4 from '../images/expertguidance.jpg';
 import machine5 from '../images/packaging.jpg';
 import Service from './Service';
 
-const DropDown = ({ currentMode }) => (
-  <div className='w-28 border-1 border-color px-2 py-1 rounded-md'>
-    {/* ... (Dropdown component) */}
-  </div>
+const DropDown = ({ options, selected, onSelect }) => (
+  <div className='w-32 border-1 border-color px-2 py-1 rounded-md'>
+  <DropDownListComponent
+    id='filter'
+    placeholder="Filter"
+    fields={{ text: 'value', value: 'value' }}
+    style={{ border: 'none' }}
+    value={selected}
+    dataSource={[
+      { value: 'All', text: 'All' }, 
+      ...options.map((option) => ({ value: option, text: option }))
+    ]}
+    change={(e) => onSelect(e.value)}
+  />
+</div>
 );
+
 
 const Dbs = () => {
   const { currentColor, currentMode } = useStateContext();
@@ -24,21 +36,6 @@ const Dbs = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // const hiringItems = [
-  //   { id: 1, title: 'JCB ', description: 'Description 1', image: machine },
-  //   { id: 2, title: 'Thrasher', description: 'Description 2', image: machine1 },
-  //   { id: 3, title: 'Tractor', description: 'Description 3', image: machine2 },
-  //   { id: 4, title: 'Tractor', description: 'Description 4', image: machine3 },
-  //   { id: 5, title: 'Thrasher', description: 'Description 5', image: machine4 },
-  //   {
-  //     id: 6,
-  //     title: 'Harvester',
-  //     description: 'Description 6',
-  //     image: machine5,
-  //   },
-  //   { id: 7, title: 'Harvester', description: 'Description 7', image: machine },
-  //   { id: 8, title: 'Thrasher', description: 'Description 8', image: machine1 },
-  // ];
   const hiringItems = [
     { 
       id: 1, 
@@ -98,6 +95,7 @@ const Dbs = () => {
     },
   ];
   
+  
 
   const openHire = (item) => {
     setSelectedItem(item);
@@ -109,9 +107,9 @@ const Dbs = () => {
   };
 
   return (
-    <div className='mt-24'>
+    <div className='mt-24 top-box'>
     <div className='flex flex-col items-center mb-4'>
-        {/* <div className="relative mb-2"> */}
+    <h2 className='page-name'>Demand Based Services</h2>
         <input
           type='text'
           placeholder='Search...'
