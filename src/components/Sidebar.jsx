@@ -8,7 +8,7 @@ import { links } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Sidebar = () => {
-  const { currentColor, activeMenu, setActiveMenu, screenSize } =
+  const { currentColor, activeMenu, setActiveMenu, screenSize, loginChecker } =
     useStateContext();
 
   const handleCloseSideBar = () => {

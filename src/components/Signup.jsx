@@ -12,6 +12,7 @@ const SignupPage = () => {
   };
 
   return (
+    <div className="signup-background">
     <div className="signup-card">
       <h2 className="card-name">Sign Up</h2>
       <div className="input-group">
@@ -36,7 +37,7 @@ const SignupPage = () => {
         <input
           type='text'
           id='otp'
-          placeholder='1234'
+          placeholder='OTP'
           value={otp}
           onChange={(e) => setOtp(e.target.value)}
         />
@@ -46,6 +47,7 @@ const SignupPage = () => {
           Submit
         </button>
       </div>
+    </div>
     </div>
   );
 };
