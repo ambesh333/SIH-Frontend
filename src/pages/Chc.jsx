@@ -3,12 +3,14 @@ import { FaRupeeSign, FaSearch } from 'react-icons/fa';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { useStateContext } from '../contexts/ContextProvider';
 import product9 from '../data/product9.jpg';
-import machine from '../images/machine.jpg';
-import machine1 from '../images/machine1.jpeg';
-import machine2 from '../images/machine2.jpeg';
-import machine3 from '../images/machine3.jpeg';
-import machine4 from '../images/machine4.jpeg';
-import machine5 from '../images/machine5.jpeg';
+import JCB from '../images/JCB.jpg';
+import thresher from '../images/thresher.jpg';
+import tractor from '../images/tractor2.jpg';
+import irrigation from '../images/irrigation.jpg';
+import planters from '../images/planters.jpg';
+import cultivator from '../images/cultivator.jpg';
+import Harvester from '../images/harvester.jpg';
+import Seedeqpt from '../images/seedsower.png';
 import Hire from './Hire';
 
 const DropDown = ({ currentMode }) => (
@@ -39,110 +41,14 @@ const Chc = () => {
   //   { id: 8, title: 'Thrasher', description: 'Description 8', image: machine1 },
   // ];
   const hiringItems = [
-    { 
-      id: 1, 
-      title: 'JCB', 
-      description: `    
-        Model: XYZ-5000<br>
-        Engine Power: 100 HP<br>
-        Fuel Type: Diesel<br>
-        Transmission: Manual<br>
-        Year of Manufacture: 2022<br>
-        Condition: Excellent`, 
-      image: machine,
-      basePrice: 400, 
-    },
-    { 
-      id: 2, 
-      title: 'Thrasher', 
-      description: `
-        Model: ABC-2000<br>
-        Threshing Capacity: 2 tons/hr<br>
-        Power Source: Diesel Engine<br>
-        Fuel Consumption: 5 l/hr<br>
-        Year of Manufacture: 2021<br>
-        Condition: Well-maintained`, 
-      image: machine1,
-      basePrice: 500, 
-    },
-    { 
-      id: 3, 
-      title: 'small Tractor', 
-      description: `
-        Model: LMN-300<br>
-        Engine Power: 50 HP<br>
-        Fuel Type: Diesel<br>
-        Transmission: Automatic<br>
-        Year of Manufacture: 2019<br>
-        Condition: Good`, 
-      image: machine2,
-      basePrice: 600, 
-    },
-    { 
-      id: 4, 
-      title: 'big Tractor', 
-      description: `
-        Model: DEF-700<br>
-        Engine Power: 120 HP<br>
-        Fuel Type: Diesel<br>
-        Transmission: Manual<br>
-        Year of Manufacture: 2020<br>
-        Condition: Excellent`, 
-      image: machine3,
-      basePrice: 300, 
-    },
-    { 
-      id: 5, 
-      title: 'medium Thrasher', 
-      description: `
-        Model: MNO-1500<br>
-        Threshing Capacity: 1.5 tons/hour<br>
-        Power Source: Diesel Engine<br>
-        Fuel Consumption: 4 ls/hr<br>
-        Year of Manufacture: 2020<br>
-        Condition: Well-maintained`, 
-      image: machine4,
-      basePrice: 500, 
-    },
-    {
-      id: 6,
-      title: 'Harvester',
-      description: `
-        Model: PQR-2500<br>
-        Harvesting Capacity: 2500 sq. meters/hour<br>
-        Power Source: Diesel Engine<br>
-        Fuel Consumption: 6 l/hr<br>
-        Year of Manufacture: 2021<br>
-        Condition: Excellent`, 
-      image: machine5,
-      basePrice: 800,
-    },
-    { 
-      id: 7, 
-      title: 'Harvester', 
-      description: `
-        Model: STU-1800<br>
-        Harvesting Capacity: 1800 sq. meters/hour<br>
-        Power Source: Diesel Engine<br>
-        Fuel Consumption: 5 ls/hr<br>
-        Year of Manufacture: 2019<br>
-        Condition: Good`, 
-      image: machine,
-      basePrice: 700, 
-    },
-    { 
-      id: 8, 
-      title: 'small Thrasher', 
-      description: `
-        Model: VWX-1200<br>
-        Threshing Capacity: 1.2 tons/hour<br>
-        Power Source: Diesel Engine<br>
-        Fuel Consumption: 3 l/hr<br>
-        Year of Manufacture: 2018<br>
-        Condition: Fair`, 
-      image: machine1,
-      basePrice: 600,  
-    },
+    { id: 1, title: 'JCB ', description: 'Description 1', image: JCB },
+    { id: 2, title: 'Thresher', description: 'Description 2', image: thresher },
+    { id: 3, title: 'Irrigation Equipment', description: 'Description 3', image: irrigation },
+    { id: 4, title: 'Tractor', description: 'Description 4', image: tractor},
+    { id: 5, title: 'Planter', description: 'Description 5', image: planters },
+    { id: 6, title: 'Cultivator', description: 'Description 5', image: cultivator },
+    { id: 7, title: 'Harvester', description: 'Description 5', image: Harvester },
+    { id: 8, title: 'Seed Sowing Equipment', description: 'Description 5', image: Seedeqpt },
   ];
   
 
