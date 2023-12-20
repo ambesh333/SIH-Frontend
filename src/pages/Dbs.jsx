@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { FaRupeeSign, FaSearch } from 'react-icons/fa';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { useStateContext } from '../contexts/ContextProvider';
-import product9 from '../data/product9.jpg';
-import machine from '../images/machine.jpg';
-import machine1 from '../images/machine1.jpeg';
-import machine2 from '../images/machine2.jpeg';
-import machine3 from '../images/machine3.jpeg';
-import machine4 from '../images/machine4.jpeg';
-import machine5 from '../images/machine5.jpeg';
-import Hire from './Hire';
+import machine from '../images/truck1.jpg';
+import storage from '../images/coldstorage.jpg';
+import vaccination from '../images/vaccination2.jpg';
+import machine1 from '../images/loan.jpg';
+import machine2 from '../images/images.jpg';
+import machine3 from '../images/soiltest.jpg';
+import machine4 from '../images/expertguidance.jpg';
+import machine5 from '../images/packaging.jpg';
+import Service from './Service';
 
 const DropDown = ({ currentMode }) => (
   <div className='w-28 border-1 border-color px-2 py-1 rounded-md'>
@@ -17,7 +18,7 @@ const DropDown = ({ currentMode }) => (
   </div>
 );
 
-const Chc = () => {
+const Dbs = () => {
   const { currentColor, currentMode } = useStateContext();
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -41,107 +42,59 @@ const Chc = () => {
   const hiringItems = [
     { 
       id: 1, 
-      title: 'JCB', 
-      description: `    
-        Model: XYZ-5000<br>
-        Engine Power: 100 HP<br>
-        Fuel Type: Diesel<br>
-        Transmission: Manual<br>
-        Year of Manufacture: 2022<br>
-        Condition: Excellent`, 
-      image: machine,
-      basePrice: 400, 
+      title: 'Yield Transport', 
+      description: "Efficient and reliable transportation solutions for farmers' produce, ensuring timely delivery.", 
+      image: machine ,
+      basePrice: 600,
     },
     { 
       id: 2, 
-      title: 'Thrasher', 
-      description: `
-        Model: ABC-2000<br>
-        Threshing Capacity: 2 tons/hr<br>
-        Power Source: Diesel Engine<br>
-        Fuel Consumption: 5 l/hr<br>
-        Year of Manufacture: 2021<br>
-        Condition: Well-maintained`, 
-      image: machine1,
-      basePrice: 500, 
+      title: 'Crop Storage', 
+      description: "State-of-the-art facilities for preserving crops, maintaining yield quality and maximizing value.", 
+      image: storage,
+      basePrice: 500,
     },
     { 
       id: 3, 
-      title: 'small Tractor', 
-      description: `
-        Model: LMN-300<br>
-        Engine Power: 50 HP<br>
-        Fuel Type: Diesel<br>
-        Transmission: Automatic<br>
-        Year of Manufacture: 2019<br>
-        Condition: Good`, 
-      image: machine2,
-      basePrice: 600, 
+      title: 'Financial Services', 
+      description: "Tailored financial support to empower farmers, fostering sustainable agricultural practices.", 
+      image: machine1,
+      basePrice: 300,
     },
     { 
       id: 4, 
-      title: 'big Tractor', 
-      description: `
-        Model: DEF-700<br>
-        Engine Power: 120 HP<br>
-        Fuel Type: Diesel<br>
-        Transmission: Manual<br>
-        Year of Manufacture: 2020<br>
-        Condition: Excellent`, 
+      title: 'Soil Testing', 
+      description:"Precision soil analysis for informed decision-making, optimizing yields and resource utilization.", 
       image: machine3,
-      basePrice: 300, 
+      basePrice: 700,
     },
     { 
       id: 5, 
-      title: 'medium Thrasher', 
-      description: `
-        Model: MNO-1500<br>
-        Threshing Capacity: 1.5 tons/hour<br>
-        Power Source: Diesel Engine<br>
-        Fuel Consumption: 4 ls/hr<br>
-        Year of Manufacture: 2020<br>
-        Condition: Well-maintained`, 
+      title: 'Technical Guidance', 
+      description:"Expert advice and technical support to enhance farming practices and increase productivity.", 
       image: machine4,
-      basePrice: 500, 
+      basePrice: 400,
     },
     {
       id: 6,
-      title: 'Harvester',
-      description: `
-        Model: PQR-2500<br>
-        Harvesting Capacity: 2500 sq. meters/hour<br>
-        Power Source: Diesel Engine<br>
-        Fuel Consumption: 6 l/hr<br>
-        Year of Manufacture: 2021<br>
-        Condition: Excellent`, 
-      image: machine5,
-      basePrice: 800,
+      title: 'Livestock Vaccination',
+      description:"Comprehensive vaccination services to safeguard the health and well-being of livestock.", 
+      image: vaccination,
+      basePrice: 600,
     },
     { 
       id: 7, 
-      title: 'Harvester', 
-      description: `
-        Model: STU-1800<br>
-        Harvesting Capacity: 1800 sq. meters/hour<br>
-        Power Source: Diesel Engine<br>
-        Fuel Consumption: 5 ls/hr<br>
-        Year of Manufacture: 2019<br>
-        Condition: Good`, 
-      image: machine,
-      basePrice: 700, 
+      title: 'Post Harvest Service', 
+      description:"Specialized solutions for post-harvest handling, minimizing losses and ensuring product quality.", 
+      image: machine2,
+      basePrice: 600,
     },
     { 
       id: 8, 
-      title: 'small Thrasher', 
-      description: `
-        Model: VWX-1200<br>
-        Threshing Capacity: 1.2 tons/hour<br>
-        Power Source: Diesel Engine<br>
-        Fuel Consumption: 3 l/hr<br>
-        Year of Manufacture: 2018<br>
-        Condition: Fair`, 
-      image: machine1,
-      basePrice: 600,  
+      title: 'Packaging Services', 
+      description: "High-quality packaging solutions to enhance the appeal and shelf life of products.", 
+      image: machine5,
+      basePrice: 400, 
     },
   ];
   
@@ -157,7 +110,7 @@ const Chc = () => {
 
   return (
     <div className='mt-24'>
-      <div className='flex flex-col items-center mb-4'>
+    <div className='flex flex-col items-center mb-4'>
         {/* <div className="relative mb-2"> */}
         <input
           type='text'
@@ -193,10 +146,10 @@ const Chc = () => {
           </div>
         ))}
       </div>
-      <Hire isOpen={isModalOpen} onClose={closeHire} item={selectedItem} />
+      <Service isOpen={isModalOpen} onClose={closeHire} item={selectedItem} />
       {isModalOpen && <div className='backdrop open' onClick={closeHire}></div>}
     </div>
   );
 };
 
-export default Chc;
+export default Dbs;
