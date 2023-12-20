@@ -6,6 +6,10 @@ const Registration = () => {
   const [name, setName] = useState("");
   const [state, setState] = useState("");
   const [district, setDistrict] = useState("");
+  const [machinery, setMachinery] = useState("");
+  const [capital, setCapital] = useState("");
+  const [land, setLand] = useState("");
+  const [crop, setCrop] = useState("");
 
   const handleSignup = () => {
     navigate("/login");
@@ -40,6 +44,42 @@ const Registration = () => {
           placeholder='District'
           value={district}
           onChange={(e) => setDistrict(e.target.value)}
+        />
+      </div>
+      <div className='input-group'>
+        <input
+          type='text'
+          id='machinery'
+          placeholder='Machinery'
+          value={machinery}
+          onChange={(e) => setMachinery(e.target.value)}
+        />
+      </div>
+      <div className='input-group'>
+        <input
+          type='text'
+          id='capital'
+          placeholder='Capital'
+          value={capital}
+          onChange={(e) => setCapital(e.target.value)}
+        />
+      </div>
+      <div className='input-group'>
+        <input
+          type='text'
+          id='land'
+          placeholder='Land'
+          value={land}
+          onChange={(e) => setLand(e.target.value)}
+        />
+      </div>
+      <div className='input-group'>
+        <input
+          type='text'
+          id='crop'
+          placeholder='Crop'
+          value={crop}
+          onChange={(e) => setCrop(e.target.value)}
         />
       </div>
       <div className="button-group">
