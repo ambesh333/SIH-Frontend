@@ -46,6 +46,7 @@ import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
 import product8 from './product8.jpg';
+import { GoGitCompare } from 'react-icons/go';
 
 export const gridOrderImage = (props) => (
   <div>
@@ -538,9 +539,10 @@ export const links = [
         name: 'FPO Recomendation',
         icon: <RiContactsLine />,
       },
+
       {
-        name: 'Register FPO',
-        icon: <RiContactsLine />,
+        name: 'Compare FPO',
+        icon: <GoGitCompare />,
       },
     ],
   },

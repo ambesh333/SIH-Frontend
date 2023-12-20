@@ -1,27 +1,28 @@
-import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { FiSettings } from "react-icons/fi";
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
-import PredictionForm from "./components/PredictionForm";
-import PredictionResult from "./components/PredictionResult";
-import { makePrediction } from "./services/PredictionService";
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { FiSettings } from 'react-icons/fi';
+import { TooltipComponent } from '@syncfusion/ej2-react-popups';
+import PredictionForm from './components/PredictionForm';
+import PredictionResult from './components/PredictionResult';
+import { makePrediction } from './services/PredictionService';
 
-import { Login, Signup, Registration, Landing } from "./components";
+import { Login, Signup, Registration, Landing } from './components';
 
-import { Navbar, Footer, Sidebar } from "./components";
+import { Navbar, Footer, Sidebar } from './components';
 import {
   Ecommerce,
   Orders,
   MarketPlace,
   FpoRegistration,
   LandingPage,
+  Compare,
   Calendar,
   Employees,
   Customers,
   Kanban,
   ColorPicker,
   Editor,
-  Chc
+  Chc,
 } from './pages';
 import './App.css';
 
@@ -32,17 +33,17 @@ const App = () => {
   const googleTranslateElementInit = () => {
     new window.google.translate.TranslateElement(
       {
-        pageLanguage: "en",
-        autoDisplay: false
+        pageLanguage: 'en',
+        autoDisplay: false,
       },
-      "google_translate_element"
+      'google_translate_element'
     );
   };
   useEffect(() => {
-    var addScript = document.createElement("script");
+    var addScript = document.createElement('script');
     addScript.setAttribute(
-      "src",
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+      'src',
+      '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
     );
     document.body.appendChild(addScript);
     window.googleTranslateElementInit = googleTranslateElementInit;
@@ -95,7 +96,9 @@ const App = () => {
 
   return (
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
-      <div className="google"><div id="google_translate_element" ></div></div>
+      <div className='google'>
+        <div id='google_translate_element'></div>
+      </div>
       <BrowserRouter>
         <div className='flex relative dark:bg-main-dark-bg'>
           <div className='fixed right-4 bottom-4' style={{ zIndex: '1000' }}>
@@ -132,21 +135,22 @@ const App = () => {
             <div>
               <Routes>
                 {/* dashboard  */}
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/DashBoard" element={<Ecommerce />} />
+                <Route path='/' element={<LandingPage />} />
+                <Route path='/DashBoard' element={<Ecommerce />} />
 
                 {/* pages  */}
-                <Route path="/orders" element={<Orders />} />
-                <Route path="/MarketPlace" element={<MarketPlace />} />
-                <Route path="/CHC" element={<Chc />} />
+                <Route path='/orders' element={<Orders />} />
+                <Route path='/MarketPlace' element={<MarketPlace />} />
+                <Route path='/CHC' element={<Chc />} />
+                <Route path='/Compare FPO' element={<Compare />} />
                 <Route
-                  path="/FPO Recomendation"
+                  path='/FPO Recomendation'
                   element={<FpoRegistration />}
                 />
 
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/register" element={<Registration />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/signup' element={<Signup />} />
+                <Route path='/register' element={<Registration />} />
 
                 {/* apps  */}
               </Routes>
