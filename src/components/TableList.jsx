@@ -29,7 +29,10 @@ const TableList = ({ farm }) => {
       <div className='flex-1'>
         {/* Title Row */}
         <div className='flex justify-between items-center mb-4'>
-          <p className='text-xl font-semibold'>FPO Id:{FPO_ID}</p>
+          <div className='flex'>
+            <p className='flex-1 text-xl font-semibold mr-8'>{FPO_ID}</p>
+            <p className='flex-1 text-sm '>{Commodity}</p>
+          </div>
           <div className='flex flex-col text-sm'>
             <span className='text-gray-500'>District: {District}</span>
             <span className='text-gray-500'>State: {State}</span>
