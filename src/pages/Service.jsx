@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
-const Hire = ({ isOpen, onClose, item }) => {
+const Service = ({ isOpen, onClose, item }) => {
   const [quantity, setQuantity] = useState(1);
 
   if (!item) {
     return null;
   }
 
-  const basePrice = parseFloat(item.basePrice);  
+  const basePrice = parseFloat(item.basePrice); 
   const totalPrice = basePrice * quantity;
 
   const handleIncrease = () => {
@@ -46,4 +46,4 @@ const Hire = ({ isOpen, onClose, item }) => {
   );
 };
 
-export default Hire;
+export default Service;

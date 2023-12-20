@@ -14,6 +14,7 @@ import {
   FiCreditCard,
   FiStar,
   FiShoppingCart,
+  FiLoader 
 } from 'react-icons/fi';
 import {
   BsKanban,
@@ -528,12 +529,16 @@ export const links = [
     title: 'Services',
     links: [
       {
-        name: 'CHC',
+        name: 'Custom Hiring Centre',
         icon: <AiOutlineShoppingCart />,
       },
       {
-        name: 'MarketPlace',
+        name: 'Market Place',
         icon: <IoMdContacts />,
+      },
+      {
+        name: 'Demand Based Services',
+        icon: <FiLoader />,
       },
       {
         name: 'FPO Recomendation',
