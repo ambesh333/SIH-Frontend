@@ -6,7 +6,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const DropDown = ({ options, label }) => {
+const DropDown = ({ options, label, setValue }) => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -34,7 +34,7 @@ const DropDown = ({ options, label }) => {
               <Menu.Item key={index}>
                 {({ active }) => (
                   <a
-                    href=""
+                    onClick={() => setValue(option)}
                     className={classNames(
                       active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                       "block px-4 py-2 text-sm"
