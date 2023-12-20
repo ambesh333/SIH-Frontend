@@ -394,6 +394,13 @@ transform: scale(1.3);
   font-weight: bold;
 }
 
+.hire-price{
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
 .quantity-container {
   display: flex;
   align-items: center;

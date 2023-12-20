@@ -7,6 +7,9 @@ const Hire = ({ isOpen, onClose, item }) => {
     return null;
   }
 
+  const basePrice = 500; 
+  const totalPrice = basePrice * quantity;
+
   const handleIncrease = () => {
     setQuantity(quantity + 1);
   };
@@ -18,7 +21,7 @@ const Hire = ({ isOpen, onClose, item }) => {
   };
 
   const handleRent = () => {
-    console.log(`Rent ${quantity} ${item.title}(s)`);
+    console.log(`Rent ${quantity} ${item.title}(s) for a total of $${totalPrice}`);
     onClose(); 
   };
 
@@ -28,14 +31,15 @@ const Hire = ({ isOpen, onClose, item }) => {
         <span className="close" onClick={onClose}>&times;</span>
         <h2 className="hire-name">{item.title}</h2>
         <img 
-              src={item.image}
-              alt={item.title}
-            />
+          src={item.image}
+          alt={item.title}
+        />
         <div className="quantity-container">
           <button className="quantity-container button decrease" onClick={handleDecrease}>-</button>
           <span>{quantity}</span>
           <button className="quantity-container button" onClick={handleIncrease}>+</button>
         </div>
+        <p className="hire-price">Total Price: ₹{totalPrice}</p>
         <button className="button-rent" onClick={handleRent}>Rent</button>
       </div>
     </div>
