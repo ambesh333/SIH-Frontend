@@ -3,12 +3,14 @@ import { FaRupeeSign, FaSearch } from 'react-icons/fa';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 import { useStateContext } from '../contexts/ContextProvider';
 import product9 from '../data/product9.jpg';
-import machine from '../images/machine.jpg';
-import machine1 from '../images/machine1.jpeg';
-import machine2 from '../images/machine2.jpeg';
-import machine3 from '../images/machine3.jpeg';
-import machine4 from '../images/machine4.jpeg';
-import machine5 from '../images/machine5.jpeg';
+import JCB from '../images/JCB.jpg';
+import thresher from '../images/thresher.jpg';
+import tractor from '../images/tractor2.jpg';
+import irrigation from '../images/irrigation.jpg';
+import planters from '../images/planters.jpg';
+import cultivator from '../images/cultivator.jpg';
+import Harvester from '../images/harvester.jpg';
+import Seedeqpt from '../images/seedsower.png';
 import Hire from './Hire';
 
 const DropDown = ({ currentMode }) => (
@@ -39,19 +41,14 @@ const Chc = () => {
   //   { id: 8, title: 'Thrasher', description: 'Description 8', image: machine1 },
   // ];
   const hiringItems = [
-    { id: 1, title: 'JCB ', description: 'Description 1', image: machine },
-    { id: 2, title: 'Thrasher', description: 'Description 2', image: machine1 },
-    { id: 3, title: 'Tractor', description: 'Description 3', image: machine2 },
-    { id: 4, title: 'Tractor', description: 'Description 4', image: machine3 },
-    { id: 5, title: 'Thrasher', description: 'Description 5', image: machine4 },
-    {
-      id: 6,
-      title: 'Harvester',
-      description: 'Description 6',
-      image: machine5,
-    },
-    { id: 7, title: 'Harvester', description: 'Description 7', image: machine },
-    { id: 8, title: 'Thrasher', description: 'Description 8', image: machine1 },
+    { id: 1, title: 'JCB ', description: 'Description 1', image: JCB },
+    { id: 2, title: 'Thresher', description: 'Description 2', image: thresher },
+    { id: 3, title: 'Irrigation Equipment', description: 'Description 3', image: irrigation },
+    { id: 4, title: 'Tractor', description: 'Description 4', image: tractor},
+    { id: 5, title: 'Planter', description: 'Description 5', image: planters },
+    { id: 6, title: 'Cultivator', description: 'Description 5', image: cultivator },
+    { id: 7, title: 'Harvester', description: 'Description 5', image: Harvester },
+    { id: 8, title: 'Seed Sowing Equipment', description: 'Description 5', image: Seedeqpt },
   ];
 
   const openHire = (item) => {
