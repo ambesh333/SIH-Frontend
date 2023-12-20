@@ -6,6 +6,8 @@ import PredictionForm from "./components/PredictionForm";
 import PredictionResult from "./components/PredictionResult";
 import { makePrediction } from "./services/PredictionService";
 
+import Chatbot from "./components/Chatbot";
+
 import { Login, Signup, Registration, Landing } from "./components";
 
 import { Navbar, Footer, Sidebar } from "./components";
@@ -21,7 +23,8 @@ import {
   Kanban,
   ColorPicker,
   Editor,
-  Chc
+  Chc,
+  Dbs
 } from './pages';
 import './App.css';
 
@@ -99,16 +102,7 @@ const App = () => {
       <BrowserRouter>
         <div className='flex relative dark:bg-main-dark-bg'>
           <div className='fixed right-4 bottom-4' style={{ zIndex: '1000' }}>
-            <TooltipComponent content='Settings' position='Top'>
-              {/* <button
-                type='button'
-                onClick={() => setThemeSettings(true)}
-                style={{ background: currentColor, borderRadius: '50%' }}
-                className='text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray'
-              >
-                <FiSettings />
-              </button> */}
-            </TooltipComponent>
+             <Chatbot/>
           </div>
           {activeMenu ? (
             <div className='w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white '>
@@ -137,8 +131,9 @@ const App = () => {
 
                 {/* pages  */}
                 <Route path="/orders" element={<Orders />} />
-                <Route path="/MarketPlace" element={<MarketPlace />} />
-                <Route path="/CHC" element={<Chc />} />
+                <Route path="/Market Place" element={<MarketPlace />} />
+                <Route path="/Demand Based Services" element={<Dbs />} />
+                <Route path="/Custom Hiring Centre" element={<Chc />} />
                 <Route
                   path="/FPO Recomendation"
                   element={<FpoRegistration />}
