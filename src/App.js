@@ -21,6 +21,7 @@ import {
   Kanban,
   ColorPicker,
   Editor,
+  Chc
 } from './pages';
 import './App.css';
 
@@ -118,6 +119,7 @@ const App = () => {
                 {/* pages  */}
                 <Route path="/orders" element={<Orders />} />
                 <Route path="/MarketPlace" element={<MarketPlace />} />
+                <Route path="/CHC" element={<Chc />} />
                 <Route
                   path="/FPO Recomendation"
                   element={<FpoRegistration />}
